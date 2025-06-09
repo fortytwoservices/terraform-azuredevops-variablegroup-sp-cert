@@ -1,12 +1,23 @@
 terraform {
   required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = ">3.21.1"
+    azuread = {
+      source = "hashicorp/azuread"
+    }
+
+    azuredevops = {
+      source = "microsoft/azuredevops"
+    }
+
+    pkcs12 = {
+      source  = "chilicat/pkcs12"
+      version = ">0.0.7"
+    }
+
+    tls = {
+      source  = "hashicorp/tls"
+      version = ">3.3.0"
     }
   }
 }
 
-provider "azurerm" {
-  features {}
-}
+data "azuread_client_config" "current" {}
